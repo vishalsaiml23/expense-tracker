@@ -1,0 +1,18 @@
+{
+  "name": "smart-expense-tracker",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,magenta \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "build": "npm run build --workspace=client",
+    "start": "npm run start --workspace=server",
+    "seed": "node database/seed-mongo.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
